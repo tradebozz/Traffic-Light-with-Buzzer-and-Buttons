@@ -1,0 +1,99 @@
+// declare Buzzer
+int buzzer = 8;
+
+//declare LEDs
+int greenLed = 3;
+int yellowLed = 5;
+int redLed = 7;
+
+//declare Push button
+int pushButton = 2;
+
+int readPushbutton = 0;
+
+void setup()
+{
+  pinMode(greenLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+ 
+  //Turn the LEDs off
+  digitalWrite(greenLed, LOW);
+  digitalWrite(yellowLed, LOW);
+  digitalWrite(redLed, LOW);
+  
+  //setting the buttons to input
+  pinMode(pushButton, INPUT);
+  
+  
+  //for the serial monitor
+  Serial.begin(9600);
+}
+
+void beep()
+{
+  digitalWrite(buzzer, HIGH);
+  delay(3000);
+  digitalWrite(buzzer, LOW);
+}
+
+void loop()
+{
+  
+  int readPushbutton = digitalRead(pushButton);
+  
+  if (readPushbutton == 0 ) {
+      digitalWrite(greenLed, LOW);
+      digitalWrite(yellowLed, LOW);
+      digitalWrite(redLed, HIGH);  
+      delay(5000);
+
+      digitalWrite(greenLed, HIGH);
+      digitalWrite(yellowLed, LOW);
+      digitalWrite(redLed, LOW);  
+      delay(5000);
+
+      digitalWrite(greenLed, LOW);
+      digitalWrite(yellowLed, HIGH);
+      digitalWrite(redLed, LOW);  
+      delay(3000);
+    }
+    else if (readPushbutton == 1){
+      
+      Serial.println("PEDESTRIAN WAITING");
+      digitalWrite(greenLed, LOW);
+      digitalWrite(yellowLed, LOW);
+      digitalWrite(redLed, HIGH);  
+      delay(5000);
+
+      digitalWrite(greenLed, HIGH);
+      digitalWrite(yellowLed, LOW);
+      digitalWrite(redLed, LOW);  
+      delay(5000);
+
+      digitalWrite(greenLed, LOW);
+      digitalWrite(yellowLed, LOW);
+      digitalWrite(redLed, LOW);  
+      delay(0);
+      
+      Serial.println("PEDESTRIAN WAITING");
+      digitalWrite(yellowLed,LOW);
+      digitalWrite(redLed, LOW);
+      digitalWrite(greenLed,HIGH); 
+      delay(60000);
+      
+      Serial.println("PEDESTRIAN WAITING");
+      digitalWrite(redLed, LOW);
+      digitalWrite(greenLed, LOW);
+      digitalWrite(yellowLed, HIGH);
+      delay(5000);
+      
+      digitalWrite(yellowLed,LOW);
+      digitalWrite(redLed,HIGH);
+      Serial.println("PEDESTRIAN CROSSING");
+      delay(60000);        
+    }
+  
+  
+}
