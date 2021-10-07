@@ -34,8 +34,7 @@ void setup()
 
 void beep()
 {
-  digitalWrite(buzzer, HIGH
-  );
+  digitalWrite(buzzer, HIGH);
   delay(1000);
   digitalWrite(buzzer, LOW);
 }
@@ -50,13 +49,13 @@ void loop()
       digitalWrite(yellowLed, LOW);
       digitalWrite(redLed, HIGH);
       beep();
-      delay(5000);
+      delay(20000);
 
       digitalWrite(greenLed, HIGH);
       digitalWrite(yellowLed, LOW);
       digitalWrite(redLed, LOW);
       beep();  
-      delay(5000);
+      delay(20000);
       
 
       digitalWrite(greenLed, LOW);
@@ -68,28 +67,16 @@ void loop()
     else if (readPushbutton == 1){
       
       Serial.println("PEDESTRIAN WAITING");
-      digitalWrite(greenLed, LOW);
-      digitalWrite(yellowLed, LOW);
-      digitalWrite(redLed, HIGH);
-      beep();    
-      delay(5000);
-
       digitalWrite(greenLed, HIGH);
       digitalWrite(yellowLed, LOW);
       digitalWrite(redLed, LOW);
       beep();    
-      delay(5000);
+      delay(60000);
 
       digitalWrite(greenLed, LOW);
       digitalWrite(yellowLed, LOW);
       digitalWrite(redLed, LOW);  
       delay(0);
-      
-      Serial.println("PEDESTRIAN WAITING");
-      digitalWrite(yellowLed,LOW);
-      digitalWrite(redLed, LOW);
-      digitalWrite(greenLed,HIGH); 
-      delay(60000);
       
       Serial.println("PEDESTRIAN WAITING");
       digitalWrite(redLed, LOW);
@@ -102,8 +89,6 @@ void loop()
       digitalWrite(redLed,HIGH);
       Serial.println("PEDESTRIAN CROSSING");
       beep();  
-      delay(60000);        
+      delay(60000);
     }
-  
-  
 }
