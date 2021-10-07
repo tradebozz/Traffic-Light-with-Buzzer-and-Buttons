@@ -22,6 +22,7 @@ void setup()
   digitalWrite(greenLed, LOW);
   digitalWrite(yellowLed, LOW);
   digitalWrite(redLed, LOW);
+  digitalWrite(buzzer, LOW);
   
   //setting the buttons to input
   pinMode(pushButton, INPUT);
@@ -33,8 +34,9 @@ void setup()
 
 void beep()
 {
-  digitalWrite(buzzer, HIGH);
-  delay(3000);
+  digitalWrite(buzzer, HIGH
+  );
+  delay(1000);
   digitalWrite(buzzer, LOW);
 }
 
@@ -46,17 +48,21 @@ void loop()
   if (readPushbutton == 0 ) {
       digitalWrite(greenLed, LOW);
       digitalWrite(yellowLed, LOW);
-      digitalWrite(redLed, HIGH);  
+      digitalWrite(redLed, HIGH);
+      beep();
       delay(5000);
 
       digitalWrite(greenLed, HIGH);
       digitalWrite(yellowLed, LOW);
-      digitalWrite(redLed, LOW);  
+      digitalWrite(redLed, LOW);
+      beep();  
       delay(5000);
+      
 
       digitalWrite(greenLed, LOW);
       digitalWrite(yellowLed, HIGH);
-      digitalWrite(redLed, LOW);  
+      digitalWrite(redLed, LOW);
+      beep();  
       delay(3000);
     }
     else if (readPushbutton == 1){
@@ -64,12 +70,14 @@ void loop()
       Serial.println("PEDESTRIAN WAITING");
       digitalWrite(greenLed, LOW);
       digitalWrite(yellowLed, LOW);
-      digitalWrite(redLed, HIGH);  
+      digitalWrite(redLed, HIGH);
+      beep();    
       delay(5000);
 
       digitalWrite(greenLed, HIGH);
       digitalWrite(yellowLed, LOW);
-      digitalWrite(redLed, LOW);  
+      digitalWrite(redLed, LOW);
+      beep();    
       delay(5000);
 
       digitalWrite(greenLed, LOW);
@@ -87,11 +95,13 @@ void loop()
       digitalWrite(redLed, LOW);
       digitalWrite(greenLed, LOW);
       digitalWrite(yellowLed, HIGH);
+      beep();
       delay(5000);
       
       digitalWrite(yellowLed,LOW);
       digitalWrite(redLed,HIGH);
       Serial.println("PEDESTRIAN CROSSING");
+      beep();  
       delay(60000);        
     }
   
